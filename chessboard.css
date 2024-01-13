@@ -1,0 +1,103 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    src: url("chess-7/Chess-7.TTF");
+    font-family: chessicons;
+    }
+
+.background{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 950px;
+        width: 100%;
+        background-image: linear-gradient(
+           #000000,	
+           #817f7f,     
+           #ffffff); 
+     }
+.chessboard{
+        position: relative;
+        display: grid;
+        text-align: center;
+        align-items: center;
+        border-radius: 45px;
+        border-style: solid;
+        border-width: 30px;
+        border-color: #000000;
+        grid-template-columns: repeat(8, 1fr);
+        /*grid-template-rows: repeat(8, 1fr);*/
+        grid-column-gap: 2px;
+        /*grid-row-gap: 2px;*/
+        height: 650px;
+        width: 650px;
+        background-color: #000000;
+}
+.row_a ,.row_b{
+    position: relative;
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
+    grid-row-gap: 2px;
+}
+
+.row_a .field:nth-child(odd){
+    background-color: #2E3234;
+}
+.row_a .field:nth-child(even){
+    background-color: #f1f2f3;
+}
+.row_b .field:nth-child(odd){
+    background-color: #f1f2f3;
+}
+.row_b .field:nth-child(even){
+    background-color: #2E3234;
+}
+.field{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 79.5px;
+    width: 79.5px;
+}
+.white{
+    font-family: chessicons;
+    font-size: 45px;
+    color: #e9e5ce;
+    -webkit-animation: glow-black 1s ease-in-out infinite alternate;
+    -moz-animation: glow-black 1s ease-in-out infinite alternate;
+    animation: glow-black 1s ease-in-out infinite alternate;
+}
+.black{
+    font-family: chessicons;
+    font-size: 45px;
+    color: #000000;
+    -webkit-animation: glow-white 1s ease-in-out infinite alternate;
+    -moz-animation: glow-white 1s ease-in-out infinite alternate;
+    animation: glow-white 1s ease-in-out infinite alternate;
+}
+.black:hover ,.white:hover {
+  transform: scale(1.5);
+}
+
+@-webkit-keyframes glow-black {
+    from {
+      text-shadow: 0 0 5px #180000, 0 0 10px #300000, 0 0 15px #530000, 0 0 20px #3d0000, 0 0 25px #440000, 0 0 30px #4e0000, 0 0 35px #610000;
+    }
+    to {
+      text-shadow: 0 0 10px #1a0000, 0 0 15px #530000, 0 0 20px #530000, 0 0 25px #530000, 0 0 30px #530000, 0 0 35px #530000, 0 0 40px #530000;
+    }
+  }
+
+  @-webkit-keyframes glow-white {
+    from {
+      text-shadow: 0 0 5px #00ebdf, 0 0 10px #01dacf, 0 0 15px #01cac0, 0 0 20px #01a199, 0 0 25px #018b85, 0 0 30px #01726c, 0 0 35px #015854;
+    }
+    to {
+      text-shadow: 0 0 10px #01d3c8, 0 0 15px #01b8ae, 0 0 20px #01b8ae, 0 0 25px #01b8ae, 0 0 30px #01b8ae, 0 0 35px #01b8ae, 0 0 40px #01b8ae;
+    }
+  }

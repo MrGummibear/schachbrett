@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width = device-width, initial-scale = 1.0" />  
+<link rel="stylesheet" href="chessboard.css">
+</head>
+
+<body>
+<div class="background">
+    <div class="chessboard">
+      <div class="row_a"> 
+        <div class="field"><span class="black">t</span></div>
+        <div class="field"><span class="black">m</span></div>
+        <div class="field"><span class="black">v</span></div>
+        <div class="field"><span class="black">w</span></div>
+        <div class="field"><span class="black">l</span></div>
+        <div class="field"><span class="black">v</span></div>
+        <div class="field"><span class="black">m</span></div>
+        <div class="field"><span class="black">t</span></div>
+      </div>
+      <div class="row_b">
+        <div class="field"><span class="black" draggable="true" id="figure">o</span></div>
+        <div class="field"><span class="black" draggable="true" id="figure">o</span></div>
+        <div class="field"><span class="black" draggable="true" id="figure">o</span></div>
+        <div class="field"><span class="black" draggable="true" id="figure">o</span></div>
+        <div class="field"><span class="black" draggable="true" id="figure">o</span></div>
+        <div class="field"><span class="black" draggable="true" id="figure">o</span></div>
+        <div class="field"><span class="black" draggable="true" id="figure">o</span></div>
+        <div class="field"><span class="black" draggable="true" id="figure">o</span></div>
+        </div>
+    <div class="row_a"> 
+        <div class="field"></div>
+        <div class="field"></div>
+        <div class="field"></div>
+        <div class="field"></div>
+        <div class="field"></div>
+        <div class="field"></div>
+        <div class="field"></div>
+        <div class="field"></div>
+        </div>
+    <div class="row_b">
+        <div class="field"></div>
+        <div class="field"></div>
+        <div class="field"></div>
+        <div class="field"></div>
+        <div class="field"></div>
+        <div class="field"></div>
+        <div class="field"></div>
+        <div class="field"></div>
+    </div>
+    <div class="row_a">
+        <div class="field"></div>
+        <div class="field"></div>
+        <div class="field"></div>
+        <div class="field"></div>
+        <div class="field"></div>
+        <div class="field"></div>
+        <div class="field"></div>
+        <div class="field"></div>
+    </div>
+    <div class="row_b">
+        <div class="field"></div>
+        <div class="field"></div>
+        <div class="field"></div>
+        <div class="field"></div>
+        <div class="field"></div>
+        <div class="field"></div>
+        <div class="field"></div>
+        <div class="field"></div>
+    </div>
+    <div class="row_a">
+        <div class="field"><span class="white" draggable="true" id="figure">o</span></div>
+        <div class="field"><span class="white" draggable="true" id="figure">o</span></div>
+        <div class="field"><span class="white" draggable="true" id="figure">o</span></div>
+        <div class="field"><span class="white" draggable="true" id="figure">o</span></div>
+        <div class="field"><span class="white" draggable="true" id="figure">o</span></div>
+        <div class="field"><span class="white" draggable="true" id="figure">o</span></div>
+        <div class="field"><span class="white" draggable="true" id="figure">o</span></div>
+        <div class="field"><span class="white" draggable="true" id="figure">o</span></div>
+    </div>
+    <div class="row_b">
+        <div class="field"><span class="white">t</span></div>
+        <div class="field"><span class="white">m</span></div>
+        <div class="field"><span class="white">v</span></div>
+        <div class="field"><span class="white">l</span></div>
+        <div class="field"><span class="white">w</span></div>
+        <div class="field"><span class="white">v</span></div>
+        <div class="field"><span class="white">m</span></div>
+        <div class="field"><span class="white">t</span></div>
+    </div>
+    </div>
+</div>
+</body>
+<script>
+    const figure = document.getElementById("figure")
+    const fields = document.getElementsByClassName("field")
+    figure.addEventListener("dragstart", function (ereignis){
+    ereignis.dataTransfer.setData("text", ereignis.target.id);
+    });
+    for (const field of fields){
+        field.addEventListener("dragover", function (ereignis){
+        ereignis.preventDefault();
+        ereignis.dataTransfer.dropEffect = "move";
+        });
+        field.addEventListener("drop", function (ereignis){
+        ereignis.preventDefault();
+        const readfieldid = ereignis.dataTransfer.getData("text");
+        const dragElement = document.getElementById(readfieldid);
+        ereignis.target.appendChild(dragElement);
+        });
+    }
+</script>
+
+</html>
