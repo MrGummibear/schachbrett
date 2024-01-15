@@ -11,24 +11,24 @@
 <div class="background">
     <div class="chessboard">
       <div class="row_a"> 
-        <div class="field"><span class="black">t</span></div>
-        <div class="field"><span class="black">m</span></div>
-        <div class="field"><span class="black">v</span></div>
-        <div class="field"><span class="black">w</span></div>
-        <div class="field"><span class="black">l</span></div>
-        <div class="field"><span class="black">v</span></div>
-        <div class="field"><span class="black">m</span></div>
-        <div class="field"><span class="black">t</span></div>
+        <div class="field"><span class="black figure" draggable="true">t</span></div>
+        <div class="field"><span class="black figure" draggable="true">m</span></div>
+        <div class="field"><span class="black figure" draggable="true">v</span></div>
+        <div class="field"><span class="black figure" draggable="true">w</span></div>
+        <div class="field"><span class="black figure" draggable="true">l</span></div>
+        <div class="field"><span class="black figure" draggable="true">v</span></div>
+        <div class="field"><span class="black figure" draggable="true">m</span></div>
+        <div class="field"><span class="black figure" draggable="true">t</span></div>
       </div>
       <div class="row_b">
-        <div class="field"><span class="black" draggable="true" id="figure">o</span></div>
-        <div class="field"><span class="black" draggable="true" id="figure">o</span></div>
-        <div class="field"><span class="black" draggable="true" id="figure">o</span></div>
-        <div class="field"><span class="black" draggable="true" id="figure">o</span></div>
-        <div class="field"><span class="black" draggable="true" id="figure">o</span></div>
-        <div class="field"><span class="black" draggable="true" id="figure">o</span></div>
-        <div class="field"><span class="black" draggable="true" id="figure">o</span></div>
-        <div class="field"><span class="black" draggable="true" id="figure">o</span></div>
+        <div class="field"><span class="black figure" draggable="true">o</span></div>
+        <div class="field"><span class="black figure" draggable="true">o</span></div>
+        <div class="field"><span class="black figure" draggable="true">o</span></div>
+        <div class="field"><span class="black figure" draggable="true">o</span></div>
+        <div class="field"><span class="black figure" draggable="true">o</span></div>
+        <div class="field"><span class="black figure" draggable="true">o</span></div>
+        <div class="field"><span class="black figure" draggable="true">o</span></div>
+        <div class="field"><span class="black figure" draggable="true">o</span></div>
         </div>
     <div class="row_a"> 
         <div class="field"></div>
@@ -71,42 +71,53 @@
         <div class="field"></div>
     </div>
     <div class="row_a">
-        <div class="field"><span class="white" draggable="true" id="figure">o</span></div>
-        <div class="field"><span class="white" draggable="true" id="figure">o</span></div>
-        <div class="field"><span class="white" draggable="true" id="figure">o</span></div>
-        <div class="field"><span class="white" draggable="true" id="figure">o</span></div>
-        <div class="field"><span class="white" draggable="true" id="figure">o</span></div>
-        <div class="field"><span class="white" draggable="true" id="figure">o</span></div>
-        <div class="field"><span class="white" draggable="true" id="figure">o</span></div>
-        <div class="field"><span class="white" draggable="true" id="figure">o</span></div>
+        <div class="field"><span class="white figure" draggable="true">o</span></div>
+        <div class="field"><span class="white figure" draggable="true">o</span></div>
+        <div class="field"><span class="white figure" draggable="true">o</span></div>
+        <div class="field"><span class="white figure" draggable="true">o</span></div>
+        <div class="field"><span class="white figure" draggable="true">o</span></div>
+        <div class="field"><span class="white figure" draggable="true">o</span></div>
+        <div class="field"><span class="white figure" draggable="true">o</span></div>
+        <div class="field"><span class="white figure" draggable="true">o</span></div>
     </div>
     <div class="row_b">
-        <div class="field"><span class="white">t</span></div>
-        <div class="field"><span class="white">m</span></div>
-        <div class="field"><span class="white">v</span></div>
-        <div class="field"><span class="white">l</span></div>
-        <div class="field"><span class="white">w</span></div>
-        <div class="field"><span class="white">v</span></div>
-        <div class="field"><span class="white">m</span></div>
-        <div class="field"><span class="white">t</span></div>
+        <div class="field"><span class="white figure" draggable="true">t</span></div>
+        <div class="field"><span class="white figure" draggable="true">m</span></div>
+        <div class="field"><span class="white figure" draggable="true">v</span></div>
+        <div class="field"><span class="white figure" draggable="true">l</span></div>
+        <div class="field"><span class="white figure" draggable="true">w</span></div>
+        <div class="field"><span class="white figure" draggable="true">v</span></div>
+        <div class="field"><span class="white figure" draggable="true">m</span></div>
+        <div class="field"><span class="white figure" draggable="true">t</span></div>
     </div>
     </div>
 </div>
 </body>
 <script>
-    const figure = document.getElementById("figure")
-    const fields = document.getElementsByClassName("field")
-    figure.addEventListener("dragstart", function (ereignis){
-    ereignis.dataTransfer.setData("text", ereignis.target.id);
+    /*selektiert alle Html elemente und gibts sie als liste zurück*/
+    const figures = document.getElementsByClassName("figure");
+    const fields = document.getElementsByClassName("field");
+    /*erstellt eine variable names x und weist ihr die zahl 0 zu*/
+    var x=0;
+    /*loop*/
+    for (const figure of figures){
+        /*ist eine addition von x0 zu x1...*/
+        x++;
+        /*setzt ein attriebut in diesem fall eine ID, basierent auf x*/
+        figure.setAttribute("id", "fig"+x);
+        /*event wird ausgelöst worauf er hören soll und dann gegebenfalls eine aktion ausgefürt wird*/
+        figure.addEventListener("dragstart", function (ereignis) {
+        ereignis.dataTransfer.setData("text/plain", ereignis.target.id);
     });
+    }
     for (const field of fields){
-        field.addEventListener("dragover", function (ereignis){
+        field.addEventListener("dragover", function (ereignis) {
         ereignis.preventDefault();
         ereignis.dataTransfer.dropEffect = "move";
         });
-        field.addEventListener("drop", function (ereignis){
+        field.addEventListener("drop", function (ereignis) {
         ereignis.preventDefault();
-        const readfieldid = ereignis.dataTransfer.getData("text");
+        const readfieldid = ereignis.dataTransfer.getData("text/plain");
         const dragElement = document.getElementById(readfieldid);
         ereignis.target.appendChild(dragElement);
         });

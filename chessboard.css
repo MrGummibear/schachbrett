@@ -37,7 +37,7 @@
         width: 650px;
         background-color: #000000;
 }
-.row_a ,.row_b{
+.row_a, .row_b{
     position: relative;
     display: grid;
     grid-template-rows: repeat(8, 1fr);
@@ -84,7 +84,7 @@
   transform: scale(1.5);
 }
 
-@-webkit-keyframes glow-black {
+@keyframes glow-black {
     from {
       text-shadow: 0 0 5px #180000, 0 0 10px #300000, 0 0 15px #530000, 0 0 20px #3d0000, 0 0 25px #440000, 0 0 30px #4e0000, 0 0 35px #610000;
     }
@@ -93,7 +93,7 @@
     }
   }
 
-  @-webkit-keyframes glow-white {
+  @keyframes glow-white {
     from {
       text-shadow: 0 0 5px #00ebdf, 0 0 10px #01dacf, 0 0 15px #01cac0, 0 0 20px #01a199, 0 0 25px #018b85, 0 0 30px #01726c, 0 0 35px #015854;
     }
