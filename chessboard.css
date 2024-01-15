@@ -7,19 +7,31 @@
     src: url("chess-7/Chess-7.TTF");
     font-family: chessicons;
     }
-
+body{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
 .background{
         position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 950px;
+        height: 100%;
         width: 100%;
         background-image: linear-gradient(
            #000000,	
            #817f7f,     
            #ffffff); 
      }
+.figurebox {
+        display: flex;
+        background-image: url("https://cdn.pixabay.com/photo/2016/03/25/22/13/background-1279718_1280.jpg");
+        border-radius: 20px;
+        border-style: solid;
+        border-width: 15px;
+        border-color: #000000;
+}
 .chessboard{
         position: relative;
         display: grid;
