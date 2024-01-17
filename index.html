@@ -143,6 +143,8 @@
     const fields = document.getElementsByClassName("field");
     /*erstellt eine variable names x und weist ihr die zahl 0 zu*/
     var x=0;
+    /*sound datei*/
+    var dropSound = new Audio('mp3/chess.mp3');
     /*loop*/
     for (const figure of figures){
         /*ist eine addition von x0 zu x1...*/
@@ -164,6 +166,8 @@
         const readfieldid = ereignis.dataTransfer.getData("text/plain");
         const dragElement = document.getElementById(readfieldid);
         ereignis.target.appendChild(dragElement);
+
+        dropSound.play();
         });
     }
 </script>
